@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folks Finance | Airdrop Breakdown Checker</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display.swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+    <video autoplay loop muted playsinline id="background-video">
+        <source src="assets/video/WaveDesktop.mp4" type="video/mp4">
+        Il tuo browser non supporta il tag video.
+    </video>
+
+    <div class="header-links">
+        <div class="social-icons">
+            <a href="https://twitter.com/folksfinance/" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com/invite/folksfinance" title="Discord" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+            <a href="https://t.me/FolksfinanceOfficial/" title="Telegram" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+            <a href="https://www.reddit.com/r/FolksFinance/" title="Reddit" target="_blank" rel="noopener noreferrer"><i class="fab fa-reddit"></i></a>
+            <a href="https://folksfinance.medium.com" title="Medium" target="_blank" rel="noopener noreferrer"><i class="fab fa-medium"></i></a>
+            <a href="https://www.instagram.com/folksfinance/" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/folksfinance/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/c/FolksFinance/" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        </div>
+        <button class="connect-btn" id="connectBtn">Connect Wallet</button>
+    </div>
+
+    <div class="container">
+        <img src="assets/images/logo_white.png" alt="Folks Finance Logo" class="logo">
+        
+        <h1 class="title">Airdrop Breakdown</h1>
+        <p class="subtitle">A detailed view of your airdrop allocation.</p>
+
+        <input type="text" class="wallet-input" placeholder="Enter your wallet address or connect" id="walletInput">
+        
+        <button class="check-btn" id="checkBtn">
+            <span id="btnText">Check</span>
+            <div class="spinner" id="spinner"></div>
+        </button>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="results" id="results">
+            <div class="total-allocation">
+                <div class="total-number">
+                    <span id="totalTokens">0</span>
+                    <img src="assets/images/token.png" alt="Token" class="token-icon">
+                </div>
+            </div>
+            <div class="campaigns-list" id="campaignsList">
+            </div>
+        </div>
+        
+        <div class="not-eligible" id="notEligible">
+           <div class="not-eligible-icon"><img src="assets/images/remove.png" style="width: 6rem;"></div>
+            <h3>You are not eligible for the airdrop</h3>
+            <p>
+                But you can still be part of the ecosystem. 
+            </p>
+            <a href="https://app.tinyman.org/#/swap?asset_in=0&asset_out=425983626" target="_blank" rel="noopener noreferrer">
+                BUY $FOLKS
+            </a>
+        </div>
+
+        <div class="powered-by">
+            <span>Powered by</span>
+            <a href="https://aqube.io" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/logo_aqube.png" alt="AQube Logo">
+            </a>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

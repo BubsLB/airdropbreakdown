@@ -1,0 +1,33 @@
+{
+  "0x1234567890123456789012345678901234567890": {
+    "total": 1400,
+    "campaigns": [
+              { "name": "Folks Points Campaign", "tokens": 1000 },
+      { "name": "OKX Wallet Campaign", "tokens": 100 },
+      { "name": "Gold NFT Holder", "tokens": 250 },
+      { "name": "Silver NFT Holder", "tokens": 50 }
+    ]
+  },
+  "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd": {
+    "total": 300,
+    "campaigns": [
+      { "name": "Gate.io Campaign", "tokens": 150 },
+      { "name": "Black NFT Holder", "tokens": 150 }
+    ]
+  },
+  "0x742d35cc6634c0532925a3b8d41bb19e2b5a54b2": {
+    "total": 600,
+    "campaigns": [
+      { "name": "OKX Wallet Campaign", "tokens": 200 },
+      { "name": "Zerion Wallet Campaign", "tokens": 100 },
+      { "name": "Gold NFT Holder", "tokens": 300 }
+    ]
+  },
+  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045": {
+    "total": 150,
+    "campaigns": [
+      { "name": "Community Contributor", "tokens": 75 },
+      { "name": "Silver NFT Holder", "tokens": 75 }
+    ]
+  }
+}

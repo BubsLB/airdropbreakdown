@@ -1,0 +1,427 @@
+:root {
+    --primary-start: #5DBCEB;
+    --primary-end: #3669BB;
+    --text-dark: #ffffff;
+    --text-light: rgba(255, 255, 255, 0.8);
+    --white: #ffffff;
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #11141E;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: cover;
+}
+
+.header-links {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.social-icons a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--white);
+    transform: scale(1.15);
+}
+
+.webapp-btn,
+.connect-btn {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.webapp-btn:hover,
+.connect-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--white);
+}
+
+.container {
+    background: rgba(30, 30, 30, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    max-width: 230px;
+    margin: 0 auto 20px;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.wallet-input {
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Menlo', 'Monaco', monospace;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    color: var(--white);
+}
+
+.wallet-input::placeholder {
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+}
+
+.wallet-input:focus {
+    outline: none;
+    border-color: var(--primary-start);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.check-btn {
+    width: 100%;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, rgba(93, 188, 235, 0.2), rgba(54, 105, 187, 0.3));
+    color: white;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.check-btn:hover {
+    background: linear-gradient(135deg, rgba(93, 188, 235, 0.3), rgba(54, 105, 187, 0.4));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.check-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s ease-in-out infinite;
+    display: none;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.results,
+.not-eligible {
+    margin-top: 40px;
+    display: none;
+    text-align: left;
+}
+
+.results.show,
+.not-eligible.show {
+    display: block;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.total-allocation {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.total-number {
+    font-size: 3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.token-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.campaigns-list {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.campaign-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.campaign-item:last-child {
+    margin-bottom: 0;
+}
+
+.campaign-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.campaign-tokens {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.campaign-tokens .token-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.not-eligible {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.not-eligible-icon {
+    margin-bottom: 15px;
+}
+
+.not-eligible h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.not-eligible p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.not-eligible a {
+    color: var(--primary-start);
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid var(--primary-start);
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.not-eligible a:hover {
+    opacity: 0.8;
+    background-color: rgba(93, 188, 235, 0.1);
+}
+
+.error-message {
+    color: #ffc4c4;
+    margin-top: 15px;
+    font-weight: 600;
+    display: none;
+}
+
+.powered-by {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.powered-by span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+.powered-by img {
+    height: 20px;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        display: none;
+    }
+
+    .header-links {
+        gap: 10px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .container {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .total-number {
+        font-size: 2.5rem;
+    }
+
+    .powered-by {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    .header-links {
+        width: 100%;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .logo {
+        max-width: 180px;
+    }
+
+    .total-number {
+        font-size: 2.2rem;
+        gap: 10px;
+    }
+
+    .token-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .not-eligible-icon img {
+        width: 5rem;
+    }
+
+    .check-btn {
+        padding: 16px;
+        font-size: 1rem;
+    }
+}
